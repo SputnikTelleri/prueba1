@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <title>Scaperoom</title>
+
+    <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script>
+        var pruebasClave = "5i1ay5ox9zac1i2esezj8bz9x"
+        var pistaTexto = ["imaginate que TU estás en el laberinto y solo puedes girar a la izquierda.", "Aquí tienes la solución de un laberinto en el que solo puedes girar a la derecha https://www.logicmazes.com/easy/maze1sol.html", "Igual con una pista gráfica: https://raw.githubusercontent.com/SputnikTelleri/EscapeRoom/master/assets/laberinto_solucion_parcial.png"]
+        var number = 0
+
+        function cambio() {
+
+            var input = $("#name").val();
+
+            if (input == pruebasClave) {
+                alert("Bien!");
+                //aqui se cambia la pagina 
+                window.location.replace("identidad.html");
+            } else {
+                alert("INCORRECTO");
+                $("#name").val("");
+            }
+        }
+
+        function pista() {
+            if (number < pistaTexto.length) {
+                var texto = "<p>" + $("#pistaText").text() + pistaTexto[number] + "</p>";
+                $("#pistaBox").append(texto);
+                number = number + 1;
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- LOGO Y TITULO -->
+    <div class="head"><img src="assets/logo.png" class="icon">
+        <h2>Secuestro higíenico</h2>
+    </div>
+
+    <div class="section">
+        <div class="div-block">
+            <h2>El desván</h2>
+           <div class="rich-text-block w-richtext">
+                                            <p>Al salir del laboratorio ves que la escalera de incendios está abierta. El único sitio que no has mirado es el desván, tiene que estar ahí. Desde la entrada ves que está todo a oscuras y no se ve absolutamente nada. En la puerta también está este mapa del desván dibujado, seguramente hayan colocado trampas y de no pasar de forma correcta se activen. Tal y como se indica, solo podemos hacer giros a la izquierda o ir hacia delante, es decir, una vez giramos a la izquierda cambiamos la dirección a la que miramos y se convierte en el frente. También deberíamos apuntar la letra o número correspondiente <b>cada vez que pasemos por ellas</b>.</p>
+
+            </div>
+            <!-- MULTIMEDIA -->
+            <div><img class="div-block-2" src="./assets/laberinto.PNG" alt=""></div>
+             <!-- TEXTO -->
+             <div class="letra">
+                <img class="ladron" style="margin-right: 10px" src="./assets/robber.png" alt="">
+                <h2>U (7)</h2>
+            </div>
+            <div class="form-block w-form">
+                <label for="name" class="field-label">Clave</label>
+
+                <input type="text" class="w-input" placeholder="Escribe la clave!" id="name" required="">
+
+                <button onclick="cambio()" class="submit-button w-button" id="submit">Comprobar
+                </button>
+            </div>
+            <button onclick="pista()" class="w-button" id="pista">Pistas
+            </button>
+            <div id="pistaBox" style="margin-top: 5px">
+                <p id="pistaText"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

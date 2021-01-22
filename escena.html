@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <title>Scaperoom</title>
+
+    <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script>
+        //aqui se cambia la CLAVE 
+        var pruebasClave = ["papelhigienico","rollo","papel","rollodepapel"]
+        //aqui se cambian las PISTAS 
+        var pistaTexto = ["¿Hay algo distinto en las imágenes?","Mira por la cama", "Prueba a poner el nombre de esa cosa como clave", "Hay varias formas de llamarlo, puede que no estes introduciendo la correcta, recuerda que las claves son en minusculas y todo junto si es una palabra compuesta."]
+        var number = 0
+
+        function cambio() {
+
+            var input = $("#name").val();
+
+            if (input == pruebasClave[0] || input == pruebasClave[1] || input == pruebasClave[2] || input == pruebasClave[3]) {
+                alert("Bien!");
+                //aqui se cambia la pagina 
+                window.location.replace("numeros.html");
+            } else {
+                alert("INCORRECTO");
+                $("#name").val("");
+            }
+        }
+
+        function pista() {
+            if (number < pistaTexto.length) {
+                var texto = "<p>" + $("#pistaText").text() + pistaTexto[number] + "</p>";
+                $("#pistaBox").append(texto);
+                number = number + 1;
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- LOGO Y TITULO -->
+    <div class="head"><img src="assets/logo.png" class="icon">
+        <h2>Secuestro higíenico</h2>
+    </div>
+
+    <div class="section">
+        <div class="div-block">
+            <!-- TITULO -->
+            <h2>Escena del crimen</h2>
+            <!-- MULTIMEDIA -->
+            <div class="multi">
+                <!-- video: -->
+                <div class="rich-text-block w-richtext">
+                <p>Las únicas pruebas que hemos conseguido en este caso son las que veís a continuación, como sabéis después de la cuarentena el papel higiénico desapareció por completo de la tierra y mucha gente salió en busca del ultimo rollo de papel para que los científicos pudiesen estudiarlo y crear más. Este chico de Rentería dio con el último, pero algo paso...</p>
+            </div>
+                <video class="div-block-2" controls>
+                    <source src="./assets/video2.mp4" type="video/mp4">
+                </video>
+                <!-- imagen: -->
+                                <div class="rich-text-block w-richtext">
+                <p>Como veís, alguien le estaba buscando... No tenemos ni la más remota idea de quién se encuentra detrás de este secuestro. En la escena del crimen encontramos estás dos imágenes pero no entendemos la correlación de estas con la clave, tal vez tengamos que investigarlas a fondo. Si encontráis algo raro entre estas, tal vez sea la siguiente clave para seguir avanzando en la investigación. </p>
+            </div>
+                <img  src="./assets/2normal.jpg" alt="" >
+                                <img  src="./assets/2.jpg" alt="" >
+
+                <!-- audio: -->
+                <!-- <audio controls>
+                    <source src="/assets/7.wav" type="audio/wav">
+                </audio> -->
+            </div>
+            <!-- LETRA Y NUMERO -->
+            <div class="letra">
+                                <p>También encontramos una letra junto a un número y un mensaje que decía: "Jamás me atraparéis". Pensamos que es una clave secreta para encontrar al culpable, deberíais apuntar todas las que os encontréis de aquí al final de la investigación. </p>
+                <img class="ladron" style="margin-right: 10px" src="./assets/robber.png" alt="">
+                <h2>V (4)</h2>
+            </div>
+            <!-- TEXTO -->
+            <div class="rich-text-block w-richtext">
+
+            </div>
+            <div class="form-block w-form">
+                <label for="name" class="field-label">Clave</label>
+
+                <input type="text" class="w-input" placeholder="Escribe la clave!" id="name" required="">
+
+                <button onclick="cambio()" class="submit-button w-button" id="submit">Comprobar
+                </button>
+            </div>
+            <button onclick="pista()" class="w-button" id="pista">Pistas
+            </button>
+            <div id="pistaBox" style="margin-top: 5px">
+                <p id="pistaText"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

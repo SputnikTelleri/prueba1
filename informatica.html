@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <title>Scaperoom</title>
+
+    <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script>
+        var pruebasClave = "100000001101"
+        var pistaTexto = ["Sabes que es binario?", "Recuerda que las sumas en binario funcionan distinto", "Prueba a buscar en internet alguna web que convierta numeros binarios a decimales, la contraseña también está en binario"]
+        var number = 0
+
+        function cambio() {
+
+            var input = $("#name").val();
+
+            if (input == pruebasClave) {
+                alert("Bien!");
+                window.location.replace("idioma.html");
+            } else {
+                alert("INCORRECTO");
+                $("#name").val("");
+            }
+        }
+
+        function pista() {
+            if (number < pistaTexto.length) {
+                var texto = "<p>" + $("#pistaText").text() + pistaTexto[number] + "</p>";
+                $("#pistaBox").append(texto);
+                number = number + 1;
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- LOGO Y TITULO -->
+    <div class="head"><img src="assets/logo.png" class="icon">
+        <h2>Secuestro higíenico</h2>
+    </div>
+
+    <div class="section">
+        <div class="div-block">
+            <h2>Lenguaje Informático</h2>
+                      <div class="rich-text-block w-richtext">
+                <p>Ya has conseguido entrar en el cole y vas directamente al edificio de la ESO porque has visto la puerta abierta. Subes al primer piso para investigar y están todas las luces apagadas, pero parece que al fondo hay una luz que sale de la clase de informática. Te acercas y entras. Te encuentras esta imagen en el proyector. Está claro que es una suma pero ¿que clase de código es ese?, ¿La clave habrá que introducirla en el mismo código?</p>
+
+            </div>
+            <!-- MULTIMEDIA -->
+            <div><img class="div-block-2" src="./assets/binary.png" alt=""></div>
+             <!-- TEXTO -->
+                        <div class="letra">
+                <img class="ladron" style="margin-right: 10px" src="./assets/robber.png" alt="">
+                <h2>F (1)</h2>
+            </div>
+
+            <div class="form-block w-form">
+                <label for="name" class="field-label">Clave</label>
+
+                <input type="text" class="w-input" placeholder="Escribe la clave!" id="name" required="">
+
+                <button onclick="cambio()" class="submit-button w-button" id="submit">Comprobar
+                </button>
+            </div>
+            <button onclick="pista()" class="w-button" id="pista">Pistas
+            </button>
+            <div id="pistaBox" style="margin-top: 5px">
+                <p id="pistaText"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

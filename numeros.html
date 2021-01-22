@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <title>Scaperoom</title>
+
+    <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script>
+        var pruebasClave = "tellerialde"
+        var pistaTexto = ["Puede que tengamos que usar internet para que nos ayude", "¿has probado a poner las coordenadas en google maps? ¿Que sitio sale?","Si estás poniendo comas en los decimales de las coordenadas, prueba a sustituirlo por puntos", "Si, es Telleri Alde, recuerda que las contraseñas son en minusculas y todo junto"]
+        var number = 0
+
+        function cambio() {
+
+            var input = $("#name").val();
+
+            if (input == pruebasClave) {
+                alert("Bien!");
+                window.location.replace("puerta.html");
+            } else {
+                alert("INCORRECTO");
+                $("#name").val("");
+            }
+        }
+
+        function pista() {
+            if (number < pistaTexto.length) {
+                var texto = "<p>" + $("#pistaText").text() + pistaTexto[number] + "</p>";
+                $("#pistaBox").append(texto);
+                number = number + 1;
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- LOGO Y TITULO -->
+    <div class="head"><img src="assets/logo.png" class="icon">
+        <h2>Secuestro higíenico</h2>
+    </div>
+
+    <div class="section">
+        <div class="div-block">
+            <h2>Números sin sentido</h2>
+                        <div class="rich-text-block w-richtext">
+                <p>Vaya... Parece que el secuestrador se ha llevado el último rollo de papel higiénico, y a cambio nos ha dejado uno falso. Pero veamos... ¡Tenemos otra pista! En el rollo de papel higiénico han dejado una especie de código. ¿Qué querrá decir? Puede que sea una  pista de dónde se encuentra. Puede que la localización sea la clave.</p>
+                
+
+            </div>
+            <!-- MULTIMEDIA -->
+            <div><img class="div-block-2" src="./assets/mates.png" alt=""></div>
+            
+             <!-- TEXTO -->
+
+                        <div class="letra">
+                <img class="ladron" style="margin-right: 10px" src="./assets/robber.png" alt="">
+                <h2>T (2)</h2>
+            </div>
+            <div class="form-block w-form">
+                <label for="name" class="field-label">Clave</label>
+
+                <input type="text" class="w-input" placeholder="Escribe la clave!" id="name" required="">
+
+                <button onclick="cambio()" class="submit-button w-button" id="submit">Comprobar
+                </button>
+            </div>
+            <button onclick="pista()" class="w-button" id="pista">Pistas
+            </button>
+            <div id="pistaBox" style="margin-top: 5px">
+                <p id="pistaText"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

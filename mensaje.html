@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <title>Scaperoom</title>
+
+    <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script>
+        var pruebasClave = "13689"
+        var pistaTexto = ["Existe algún lenguaje que funcione solo con pitidos cortos y largos?", "Prueba a buscar un diccionario de morse a números", "Son solo numeros, los dos primeros son el 1 y el 3, faltan otros tres"]
+        var number = 0
+
+        function cambio() {
+
+            var input = $("#name").val();
+
+            if (input == pruebasClave) {
+                alert("Bien!");
+                window.location.replace("laboratorio.html");
+            } else {
+                alert("INCORRECTO");
+                $("#name").val("");
+            }
+        }
+
+        function pista() {
+            if (number < pistaTexto.length) {
+                var texto = "<p>" + $("#pistaText").text() + pistaTexto[number] + "</p>";
+                $("#pistaBox").append(texto);
+                number = number + 1;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <!-- LOGO Y TITULO -->
+    <div class="head"><img src="assets/logo.png" class="icon">
+        <h2>Secuestro higíenico</h2>
+    </div>
+
+    <div class="section">
+        <div class="div-block">
+            <!-- TITULO -->
+            <h2>Un mensaje sonoro</h2>
+                        <div class="rich-text-block w-richtext">
+                <p>Cada vez estás encontrando más letras para descubrir la identidad del asesino. De repente, empiezas a escuchar unos pitidos en la clase de música y decides ir corriendo, puede que el culpable este allí. Al llegar, solo te encuentras unos pitidos en bucle y esto escrito en la pizarra.</p>
+
+            </div>
+                        <div><img class="div-block-2" src="./assets/pizarra.png" alt=""></div>
+            <!-- MULTIMEDIA -->
+            <div class="multi">
+                <!-- audio: -->
+                <audio controls>
+                    <source src="assets/morse_2.wav" type="audio/wav">
+                </audio>
+            </div>
+            <!-- LETRA Y NUMERO -->
+            <div class="letra">
+                <img class="ladron" style="margin-right: 10px" src="./assets/robber.png" alt="">
+                <h2>I (5)</h2>
+            </div>
+            <!-- TEXTO -->
+
+
+            <div class="form-block w-form">
+                <label for="name" class="field-label">Clave</label>
+
+                <input type="text" class="w-input" placeholder="Escribe la clave!" id="name" required="">
+
+                <button onclick="cambio()" class="submit-button w-button" id="submit">Comprobar
+                </button>
+            </div>
+            <button onclick="pista()" class="w-button" id="pista">Pistas
+            </button>
+            <div id="pistaBox" style="margin-top: 5px">
+                <p id="pistaText"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+</body></html>

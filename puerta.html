@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <title>Scaperoom</title>
+
+    <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script>
+        var pruebasClave = "5234"
+        var pistaTexto = [" Leed bien antes de empezar con el código. ¿Qué salta a la vista?", "¿Qué forma geométrica tiene eso que salta a la vista?", " Sí, efectivamente, son círculos. ¿Dónde puedes encontrar círculos?"," ¿Cuantos círculos puedes encontrar en cada igualdad?", " Cuenta los círculos que hay en cada número para descubrir el código."]
+        var number = 0
+
+        function cambio() {
+
+            var input = $("#name").val();
+
+            if (input == pruebasClave) {
+                alert("Bien!");
+                window.location.replace("informatica.html");
+            } else {
+                alert("INCORRECTO");
+                $("#name").val("");
+            }
+        }
+
+        function pista() {
+            if (number < pistaTexto.length) {
+                var texto = "<p>" + $("#pistaText").text() + pistaTexto[number] + "</p>";
+                $("#pistaBox").append(texto);
+                number = number + 1;
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- LOGO Y TITULO -->
+    <div class="head"><img src="assets/logo.png" class="icon">
+        <h2>Secuestro higíenico</h2>
+    </div>
+
+    <div class="section">
+        <div class="div-block">
+            <h2>La contraseña</h2>
+                        <div class="rich-text-block w-richtext">
+                <p>Llegas a la puerta de Telleri y te encuentras una cerradura numérica, al lado de la cerradura encuentras un papel pegado en la pared y unos
+números escritos más abajo. ¿Será algún tipo de clave? ¿Qué sentidO puede tener?</p>
+
+            </div>
+            <!-- MULTIMEDIA -->
+            <div><img class="div-block-2" src="./assets/lockdoor.png" alt=""></div>
+             <!-- TEXTO -->
+                        <!-- LETRA Y NUMERO -->
+            <div class="letra">
+                <img class="ladron" style="margin-right: 10px" src="./assets/robber.png" alt="">
+                <h2>H (9)</h2>
+            </div>
+
+            <div class="form-block w-form">
+                <label for="name" class="field-label">Clave</label>
+
+                <input type="text" class="w-input" placeholder="Escribe la clave!" id="name" required="">
+
+                <button onclick="cambio()" class="submit-button w-button" id="submit">Comprobar
+                </button>
+            </div>
+            <button onclick="pista()" class="w-button" id="pista">Pistas
+            </button>
+            <div id="pistaBox" style="margin-top: 5px">
+                <p id="pistaText"></p>
+            </div>
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

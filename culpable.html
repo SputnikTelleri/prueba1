@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+
+    <title>Scaperoom</title>
+
+    <link rel='stylesheet' type='text/css' href='css/style.css' />
+
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script>
+        var number = 0
+
+        function cambio() {
+
+            var input = $("#name").val();
+
+            if (input == pruebasClave) {
+                alert("Bien!");
+                //aqui se cambia la pagina Mikelin
+                window.location.replace("2.html");
+            } else {
+                alert("INCORRECTO");
+                $("#name").val("");
+            }
+        }
+
+        function pista() {
+            if (number < pistaTexto.length) {
+                var texto = "<p>" + $("#pistaText").text() + pistaTexto[number] + "</p>";
+                $("#pistaBox").append(texto);
+                number = number + 1;
+            }
+
+        }
+
+    </script>
+</head>
+
+<body>
+    <!-- LOGO Y TITULO -->
+    <div class="head"><img src="assets/logo.png" class="icon">
+        <h2>Secuestro higiénico</h2>
+    </div>
+
+    <div class="section">
+        <div class="div-block">
+            <h2>El culpable</h2>
+            <!-- MULTIMEDIA -->
+             <!-- TEXTO -->
+                                        <video class="div-block-2" controls>
+                    <source src="./assets/VID_20200501_211945.mp4" type="video/mp4">
+                </video>
+            <div class="rich-text-block w-richtext">
+                <p>Despues de vuestra odisea por el colegio para encontrar las pistas y avisarnos, hemos podido detener al culpable, Marc. Sin vosotros jamás le habríamos atrapado. Muchísimas gracias por el apoyo, hemos visto que Sputnik tiene detectives a la altura de los casos más difíciles. Os contactaremos en el futuro si tenemos más problemas.</p>
+
+            </div>
+                            <video class="div-block-2" controls>
+                    <source src="./assets/VID-20200426-WA0009.mp4" type="video/mp4">
+                </video>
+            
+                        <div class="rich-text-block w-richtext">
+                <p>Aquí téneis un vídeo del culpable, este sinvergüenza ya está entre rejas. Lo único, que al detenerle no paraba de repetir que era inocente. Obviamente no hemos caído en sus engaños, y gracias a vosotros hemos podido resolver el misterio <br><br> O... tal vez aún no...</p>
+                <h3>Milesker por participar!</h3>     
+                            <p>Agradeceríamos eternamente que rellenéis el siguiente formulario para ayudarnos a mejorar si hacemos más escape rooms online.
+ <a href="https://forms.gle/8J7cgLniLWipB3Vr5">Formulario</a></p>
+                
+
+            </div>
+            
+        </div>
+    </div>
+
+
+</body>
+
+</html>
